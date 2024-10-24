@@ -49,7 +49,7 @@ const SignUp = () => {
     console.log(formData);
   };
   return (
-    <div className="min-h-screen mt-20">
+    <div className="min-h-screen md:mt-20">
       <div className="flex  p-3 max-w-3xl mx-auto flex-col md:flex-row gap-8">
         {/* left */}
         <div className="flex-1 mt-16">
