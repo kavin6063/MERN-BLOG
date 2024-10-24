@@ -6,28 +6,37 @@ import bcrypt from "bcryptjs"; //hash pass
 
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
-
-  if (
-    !username ||
-    !email ||
-    !password ||
-    username === "" ||
-    email === "" ||
-    password === ""
-  ) {
-    next(createError(400, "Please enter all fields"));
-  }
-
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  const newUser = new User({
-    username,
-    email,
-    password: hashedPassword,
-  });
-
   try {
+    if (
+      !username ||
+      !email ||
+      !password ||
+      username === "" ||
+      email === "" ||
+      password === ""
+    ) {
+      next(createError(400, "Please enter all fields"));
+    }
+    const userAlreadyExists = await User.findOne({ email });
+    if (userAlreadyExists) {
+      return next(createError(409, "User already exists"));
+    }
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    const newUser = new User({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
     await newUser.save();
-    res.status(201).json({ message: "User created successfully" });
+    res.status(201).json({
+      success: true,
+      message: "User created successfully",
+      user: {
+        ...newUser._doc,
+        password: undefined,
+      },
+    });
   } catch (error) {
     next(error);
   }
