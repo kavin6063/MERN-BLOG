@@ -7,6 +7,7 @@ import {
   signInFailure,
   signInStart,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 const SignIn = () => {
   // state
@@ -53,7 +54,7 @@ const SignIn = () => {
     <div className="min-h-screen md:mt-20">
       <div className="flex  p-3 max-w-3xl mx-auto flex-col md:flex-row gap-8">
         {/* left */}
-        <div className="flex-1 mt-16">
+        <div className="flex-1 mt-16 ">
           <Link to="/" className=" font-bold text-4xl  dark:text-white">
             <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
               JS
@@ -107,6 +108,7 @@ const SignIn = () => {
                 "Sign In"
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Don't have an account? </span>
