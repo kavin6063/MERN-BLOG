@@ -4,3 +4,18 @@
 /* *{
     outline: 1px solid red;
 } */
+.field-input {
+    @apply dark:bg-black-300 bg-gray-100 px-5 py-2 min-h-10 rounded-lg 
+           dark:placeholder:text-white-500 text-lg dark:text-white-800 
+           dark:shadow-black-200 dark:shadow-2xl focus:outline-none 
+           border border-gray-300 dark:border-gray-600 
+           focus:ring-1 focus:ring-blue-300;
+
+        }
+
+        .search-input{
+            @apply w-full bg-gray-100 dark:bg-black-300 px-5 py-2 rounded-lg text-sm
+            text-gray-800 dark:text-white-800 placeholder-gray-500 
+            focus:outline-none border border-gray-300 dark:border-gray-600 
+            focus:border-blue-500 dark:focus:border-blue-300
+        }

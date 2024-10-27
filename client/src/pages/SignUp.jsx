@@ -70,29 +70,32 @@ const SignUp = () => {
         {/* right */}
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div className="">
+            <div className="flex flex-col gap-2">
               <Label value="Your username" />
-              <TextInput
+              <input
                 id="username"
                 type="text"
+                className="field-input  "
                 placeholder="username"
                 onChange={handleChange}
               />
             </div>
-            <div className="">
+            <div className="flex flex-col  gap-2 ">
               <Label value="Your email" />
-              <TextInput
+              <input
                 id="email"
                 type="email"
+                className="field-input  "
                 placeholder="name@company.com"
                 onChange={handleChange}
               />
             </div>
-            <div className="">
+            <div className="flex flex-col  gap-2 ">
               <Label value="Your password" />
-              <TextInput
+              <input
                 id="password"
                 type="password"
+                className="field-input  "
                 placeholder="password"
                 onChange={handleChange}
               />

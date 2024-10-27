@@ -1,8 +1,7 @@
-import React from "react";
-import { Sidebar, SidebarItem } from "flowbite-react";
-import { HiArrowSmRight, HiUser } from "react-icons/hi";
+import React, { useEffect, useState } from "react";
+import { HiUser, HiArrowSmRight } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+
 const DashSidebar = () => {
   const location = useLocation();
   const [tab, setTab] = useState("");
@@ -16,25 +15,27 @@ const DashSidebar = () => {
   }, [location.search]);
 
   return (
-    <Sidebar className="w-full md:w-56">
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          <Link to="/dashboard?tab=profile">
-            <Sidebar.Item
-              active={tab === "profile"}
-              icon={HiUser}
-              label={"User"}
-              labelColor="dark"
-            >
-              Profile
-            </Sidebar.Item>
-          </Link>
-          <Sidebar.Item icon={HiArrowSmRight} className="cursor-pointer">
-            Sign out
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
+    <div className="w-full md:w-56  bg-white text-black  dark:bg-[#0E0E10] border-r dark:border-[#1C1C21] md:min-h-screen min-h-0 md:rounded-r-md rounded-b-md p-4">
+      <div className="space-y-2">
+        {/* Sidebar item group */}
+        <Link to="/dashboard?tab=profile">
+          <div
+            className={`flex items-center p-3 rounded-lg cursor-pointer hover:bg-slate-100  dark:hover:bg-[#1C1C21] ${
+              tab === "profile"
+                ? " dark:text-white bg-slate-100  dark:bg-[#1C1C21]"
+                : ""
+            }`}
+          >
+            <HiUser className="dark:text-white mr-3" size={20} />
+            <span className="dark:text-[#ACACAC] font-medium">Profile</span>
+          </div>
+        </Link>
+        <div className="flex items-center p-3 rounded-lg cursor-pointer hover:bg-slate-100  dark:hover:bg-[#1C1C21]">
+          <HiArrowSmRight className="dark:text-white mr-3" size={20} />
+          <span className="dark:text-[#ACACAC] font-medium">Sign out</span>
+        </div>
+      </div>
+    </div>
   );
 };
 

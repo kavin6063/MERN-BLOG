@@ -15,24 +15,24 @@ const DashProfile = () => {
             className="rounded-full w-full h-full object-cover border-4 border-teal-500"
           />
         </div>
-        <TextInput
-          className="w-3/4 md:w-full self-center"
+        <input
+          className=" field-input md:w-full w-3/4 self-center"
           type="text"
           id="username"
           placeholder="Username"
           defaultValue={currentUser.username}
         />
-        <TextInput
-          className="w-3/4 md:w-full self-center"
+        <input
+          className="field-input md:w-full w-3/4 self-center"
           type="email"
           id="email"
           placeholder="email"
           defaultValue={currentUser.email}
         />
-        <TextInput
+        <input
           type="password"
           id="password"
-          className="w-3/4 md:w-full self-center"
+          className="field-input md:w-full w-3/4 self-center"
           placeholder="Password"
         />
         <Button
